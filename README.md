@@ -47,6 +47,9 @@ npx expo export --platform web --clear
 ```
 `EXPO_PUBLIC_API_URL` : émulateur Android `http://10.0.2.2:3000` ; téléphone réel sur le même Wi-Fi `http://IP-DE-VOTRE-PC:3000`.
 
+### Déployer le frontend web sur Vercel
+Le dépôt contient `vercel.json` : la commande de build est `npm run build` et le dossier publié est `dist`. Dans les paramètres Vercel du projet, vérifiez que le **Root Directory** est la racine du dépôt (pas `backend/`) et que le **Build Command** n'est pas forcé à `vite build`. Ajoutez `EXPO_PUBLIC_API_URL` aux variables d'environnement Vercel avec l'URL publique **HTTPS** du backend. Le backend et PostgreSQL ne sont pas déployés par le build frontend ; le backend doit être hébergé séparément et autoriser l'origine du domaine Vercel dans `CORS_ORIGIN`. Après toute modification de variable d'environnement, redéployez le frontend.
+
 ## 3. Connexion Google (facultatif)
 1. Google Cloud Console > APIs & Services > Credentials : créez des identifiants OAuth 2.0 (types **Web**, **Android** avec le package `com.merveille.modeelegance` + empreinte SHA-1, et **iOS** avec le bundle `com.merveille.modeelegance`).
 2. Mettez ces identifiants dans `.env` (`EXPO_PUBLIC_GOOGLE_*_CLIENT_ID`) **et** la liste complète séparée par des virgules dans `backend/.env` (`GOOGLE_CLIENT_IDS`) : le serveur vérifie chaque jeton Google.
