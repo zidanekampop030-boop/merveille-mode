@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Merveille Mode & Élégance",
+    "slug": "merveille-mode-elegance",
+    "version": "1.0.0",
+    "scheme": "merveille",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "ios": { "supportsTablet": true, "bundleIdentifier": "com.merveille.modeelegance" },
+    "android": { "package": "com.merveille.modeelegance" },
+    "web": { "bundler": "metro", "output": "static" },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-image-picker",
+        { "photosPermission": "Merveille Mode & Élégance a besoin d'accéder à vos photos pour importer les images des articles." }
+      ]
+    ],
+    "experiments": { "typedRoutes": false }
+  }
+}
